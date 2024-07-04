@@ -35,6 +35,16 @@ provider "azuread" {
     alias           =   "ad"
 }
 
+resource "azurerm_resource_group" "appgrp" {
+  name     = "app-group-new"
+  location = "West Europe"
+}
+
+
+
+
+
+
 
 // module "windows-server" {
 //     source  =   "./azure/WindowsServer2019"
