@@ -46,6 +46,13 @@ resource "azurerm_resource_group" "appgrp" {
 }
 
 
+resource "azurerm_resource_group" "appgrp" {
+  name     = "ilabs-GTA"
+  location = "West Europe"
+
+}
+
+
 
 
 
