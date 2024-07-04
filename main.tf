@@ -46,7 +46,7 @@ resource "azurerm_resource_group" "appgrp" {
 }
 
 
-resource "azurerm_resource_group" "appgrp" {
+resource "azurerm_resource_group" "appgrpnew" {
   name     = "ilabs-GTA"
   location = "West Europe"
 
