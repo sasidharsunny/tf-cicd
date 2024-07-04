@@ -52,6 +52,12 @@ resource "azurerm_resource_group" "appgrpnew" {
 
 }
 
+resource "azurerm_resource_group" "appgrpsafe" {
+  name     = "ilabs-safe"
+  location = "West Europe"
+
+}
+
 
 
 
