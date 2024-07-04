@@ -21,7 +21,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
-  location = "East US"
+  location = "West Europe"
 }
 
 resource "azurerm_virtual_network" "example" {
@@ -59,7 +59,7 @@ resource "azurerm_network_interface" "example" {
 }
 
 resource "azurerm_virtual_machine" "example" {
-  name                  = "example-machine"
+  name                  = "Azure-test-vm"
   location              = azurerm_resource_group.example.location
   resource_group_name   = azurerm_resource_group.example.name
   network_interface_ids = [azurerm_network_interface.example.id]
