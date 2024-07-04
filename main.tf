@@ -35,27 +35,33 @@ provider "azuread" {
     alias           =   "ad"
 }
 
-resource "azurerm_resource_group" "appgrp" {
-  name     = "app-group-new"
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 2.0"
+    }
+  }
+}
+
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
   location = "East US"
 }
 
-
-
-
-
-
-
-
 resource "azurerm_virtual_network" "example" {
-  name                = "vpc-network"
+  name                = "example-network"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 }
 
 resource "azurerm_subnet" "example" {
-  name                 = "Azure-subnet"
+  name                 = "example-subnet"
   resource_group_name  = azurerm_resource_group.example.name
   virtual_network_name = azurerm_virtual_network.example.name
   address_prefixes     = ["10.0.1.0/24"]
@@ -82,7 +88,7 @@ resource "azurerm_network_interface" "example" {
 }
 
 resource "azurerm_virtual_machine" "example" {
-  name                  = "test-machine"
+  name                  = "example-machine"
   location              = azurerm_resource_group.example.location
   resource_group_name   = azurerm_resource_group.example.name
   network_interface_ids = [azurerm_network_interface.example.id]
@@ -115,38 +121,6 @@ resource "azurerm_virtual_machine" "example" {
 
 
 
-
-
-
-
-// module "windows-server" {
-//     source  =   "./azure/WindowsServer2019"
-// }
-
-// module "winvm" {
-//     source =    "./azure/Windows10-ExistingInfra"
-// }
-
-
-
-// module "aks" {
-//     source    =     "./azure/aks"
-//     env       =     "dev"
-// }
-
-
-
-// module "customrole" {
-//     source  =   "./azure/custom-roles"
-// }
-
-// module "provisioners" {
-//     source  =   "./azure/provisioners-example"
-// }
-
-// module "linuxvm" {
-//     source  =   "./azure/linuxVM"
-// }
 
 
 
