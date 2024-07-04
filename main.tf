@@ -40,7 +40,7 @@ provider "azuread" {
 
 
 resource "azurerm_resource_group" "appgrp" {
-  name     = "app-group-new"
+  name     = "ilabs-new"
   location = "West Europe"
 
 }
