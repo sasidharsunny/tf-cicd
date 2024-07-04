@@ -67,7 +67,7 @@ pipeline {
 
         stage('Waiting for Approval') {
             steps {
-                timeout(time: 10, unit: 'MINUTES') {
+                timeout(time: 1, unit: 'MINUTES') {
                     input(message: 'Deploy the infrastructure?')
                 }
             }
